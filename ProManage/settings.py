@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'rest_framework',
     'authentication',
-    'tasks'
+    'tasks',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,18 @@ DATABASES = {
     "default": dj_database_url.parse(DATABASE)
 }
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'JWT Token',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+    },
+    'USE_SESSION_AUTH': False,
+    'JSON_EDITOR': True,
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -97,6 +110,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/admin/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
