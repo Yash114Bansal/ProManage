@@ -66,7 +66,7 @@ DATABASES = {
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {
-            'type': 'JWT Token',
+            'type': 'apiKey',
             'name': 'Authorization',
             'in': 'header',
         },
