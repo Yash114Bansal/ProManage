@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASE = os.environ.get("DATABASE")
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["promanage-02l7.onrender.com"]
 
 
 # Application definition
