@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASE = os.environ.get("DATABASE")
 DEBUG = True
 
-ALLOWED_HOSTS = ["promanage-02l7.onrender.com"]
+ALLOWED_HOSTS = ["promanage-02l7.onrender.com","127.0.0.1","localhost"]
 
 
 # Application definition
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'rest_framework',
     'authentication',
     'tasks'
