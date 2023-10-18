@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASE = os.environ.get("DATABASE")
 DEBUG = True
 
-ALLOWED_HOSTS = ["promanage-02l7.onrender.com"]
+ALLOWED_HOSTS = ["promanage-02l7.onrender.com","127.0.0.1","localhost"]
 
 
 # Application definition
@@ -21,9 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'rest_framework',
     'authentication',
-    'tasks'
+    'tasks',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,18 @@ DATABASES = {
     "default": dj_database_url.parse(DATABASE)
 }
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'JWT Token',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+    },
+    'USE_SESSION_AUTH': False,
+    'JSON_EDITOR': True,
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -96,6 +110,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/admin/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
