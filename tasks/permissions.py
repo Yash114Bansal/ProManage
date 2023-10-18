@@ -7,7 +7,6 @@ class IsSuperuserOrReadOnly(permissions.BasePermission):
             return True
 
         if request.method in ['GET', 'PUT', 'PATCH']:
-            print("Passed")
             return request.user.is_authenticated
 
         return False

@@ -2,12 +2,15 @@ from rest_framework.serializers import ModelSerializer
 from .models import Tasks, subTasks
 
 class subTasksSerializer(ModelSerializer):
+
     class Meta:
         model = subTasks
         fields = '__all__'
 
 class TasksSerializer(ModelSerializer):
+
     subtasks = subTasksSerializer(many=True,required=False)
+    
     class Meta:
         model = Tasks
         fields = '__all__'
