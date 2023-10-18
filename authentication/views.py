@@ -8,3 +8,7 @@ class createUser(CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser]
     authentication_classes = [JWTAuthentication]
+    def perform_create(self, serializer):
+        user = serializer.save()
+        user.set_password(serializer.validated_data['password'])
+        user.save()
