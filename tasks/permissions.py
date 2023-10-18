@@ -1,6 +1,7 @@
 from rest_framework import permissions
 
 class IsSuperuserOrReadOnly(permissions.BasePermission):
+    
     def has_permission(self, request, view):
         if request.method in ['POST', 'DELETE'] and request.user.is_superuser:
             return True
