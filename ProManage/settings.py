@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASE = os.environ.get("DATABASE")
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["promanage-02l7.onrender.com","127.0.0.1","localhost"]
 
